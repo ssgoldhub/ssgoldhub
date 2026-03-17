@@ -29,10 +29,11 @@ const whyChoose = [
 ];
 
 const process = [
-  { step: "01", title: "Contact Us", desc: "Call or visit our office for a free consultation." },
-  { step: "02", title: "Gold Evaluation", desc: "Our experts test purity using advanced XRF technology." },
-  { step: "03", title: "Get Best Price", desc: "We offer the best price based on live market rates." },
-  { step: "04", title: "Instant Payment", desc: "Receive payment immediately via your preferred method." },
+  { step: "01", title: "Evaluation of Pledge Ticket", desc: "Share your pledge ticket details with us for initial evaluation and loan amount verification." },
+  { step: "02", title: "Physical Verification", desc: "Our team visits your doorstep for physical verification and documentation of your pledged gold." },
+  { step: "03", title: "Get Advance Amount", desc: "Receive an advance payment to help release your gold from the bank or finance company." },
+  { step: "04", title: "Purity Test", desc: "Professional purity testing of your gold to determine the exact market value and grade." },
+  { step: "05", title: "Receive Balance Amount", desc: "Get instant payment for the balance amount via cash or direct bank transfer." },
 ];
 
 const Index = () => {

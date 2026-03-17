@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
+import faqHeroImg from "@/assets/images/faq/faq-hero.jpg";
 
 const faqs = [
   {
@@ -36,6 +37,10 @@ const faqs = [
     q: "Are there any hidden charges?",
     a: "No, there are absolutely no hidden charges. The price we quote after evaluation is the final amount you receive. We believe in complete transparency in all our transactions.",
   },
+  {
+    q: "Which areas do you serve?",
+    a: "We serve customers across Telangana and Andhra Pradesh, with our headquarters in Hyderabad. We also offer doorstep service for customers in nearby areas.",
+  },
 ];
 
 const FAQ = () => {
@@ -43,9 +48,13 @@ const FAQ = () => {
 
   return (
     <>
-      {/* Hero */}
-      <section className="py-32 md:py-40 section-darker">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      {/* Hero with background image */}
+      <section className="relative py-32 md:py-40 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={faqHeroImg} className="w-full h-full object-cover" alt="Gold consultation" loading="eager" />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <AnimatedSection>
             <span className="label-gold mb-6 block mx-auto w-fit">FAQ</span>
             <h1 className="text-5xl md:text-7xl font-serif mb-6">Frequently Asked Questions</h1>
