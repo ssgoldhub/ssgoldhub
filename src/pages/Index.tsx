@@ -165,7 +165,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-serif">Our Simple Process</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-5 gap-6">
             {process.map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.15} direction="up">
                 <div className="relative p-8 text-center">
