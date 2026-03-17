@@ -53,6 +53,7 @@ const Index = () => {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             className="max-w-2xl"
           >
+            <span className="label-gold mb-4 block w-fit">Serving Telangana &amp; Andhra Pradesh</span>
             <span className="label-gold mb-6 block w-fit">Trusted Gold Buyers</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[0.9] mb-8">
               Sell Your Gold{" "}
