@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import faqHeroImg from "@/assets/images/faq/faq-hero.jpg";
@@ -47,20 +47,20 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <>
-      {/* Hero — centered with pattern overlay */}
+    <div className="theme-light bg-background text-foreground">
+      {/* Hero — centered with image overlay */}
       <section className="relative py-36 md:py-48 overflow-hidden">
         <div className="absolute inset-0">
           <img src={faqHeroImg} className="w-full h-full object-cover" alt="Gold consultation" loading="eager" />
-          <div className="absolute inset-0 bg-background/80" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+          <div className="absolute inset-0 bg-white/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <AnimatedSection>
             <div className="w-16 h-16 bg-primary/10 border border-primary/30 rounded-2xl flex items-center justify-center mx-auto mb-8">
               <HelpCircle className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif mb-6">Got Questions?</h1>
+            <h1 className="text-5xl md:text-7xl font-serif mb-6 text-foreground">Got Questions?</h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Find answers to common questions about our gold buying and valuation services.
             </p>
@@ -68,20 +68,24 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* FAQ Accordion — two-column intro + list */}
+      {/* FAQ Accordion */}
       <section className="py-24 md:py-32">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="space-y-3">
+          <div className="space-y-4">
             {faqs.map((faq, i) => (
               <AnimatedSection key={i} delay={i * 0.04}>
-                <div className={`gold-border bg-card transition-all duration-300 ${openIndex === i ? 'gold-glow' : ''}`}>
+                <div
+                  className={`bg-card border border-border rounded-xl transition-all duration-300 shadow-sm hover:shadow-md ${
+                    openIndex === i ? "shadow-md ring-1 ring-primary/20" : ""
+                  }`}
+                >
                   <button
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className="w-full flex items-center justify-between p-6 text-left gap-4"
                   >
                     <span className="flex items-center gap-4">
-                      <span className="text-primary/40 font-serif text-lg font-bold">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="font-serif text-lg md:text-xl">{faq.q}</span>
+                      <span className="text-primary/50 font-serif text-lg font-bold">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-serif text-lg md:text-xl text-foreground">{faq.q}</span>
                     </span>
                     <motion.div
                       animate={{ rotate: openIndex === i ? 180 : 0 }}
@@ -99,7 +103,7 @@ const FAQ = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 text-muted-foreground text-sm leading-relaxed border-t border-primary/10 pt-4 ml-12">
+                        <div className="px-6 pb-6 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4 ml-12">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -116,15 +120,20 @@ const FAQ = () => {
       <section className="py-24 section-elevated">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-4xl font-serif mb-6">Still Have Questions?</h2>
-            <p className="text-muted-foreground mb-10">
-              Our team is happy to help. Reach out to us anytime.
-            </p>
-            <a href="tel:8121865151" className="btn-gold inline-block">Call Us → 8121865151</a>
+            <div className="bg-card border border-border rounded-2xl p-12 md:p-16 shadow-lg">
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-6 h-6 text-primary" />
+              </div>
+              <h2 className="text-4xl font-serif mb-4 text-foreground">Still Have Questions?</h2>
+              <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
+                Our team is happy to help. Reach out to us anytime for personalized assistance.
+              </p>
+              <a href="tel:8121865151" className="btn-gold inline-block">Call Us → 8121865151</a>
+            </div>
           </AnimatedSection>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
